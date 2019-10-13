@@ -14,10 +14,7 @@ namespace NumericalMethods
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-
-			MainWindow window = new MainWindow();
-
-			Application.Run(window);			
+			Application.Run(new MainWindow());			
 		}
 	}
 }

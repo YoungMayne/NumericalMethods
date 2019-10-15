@@ -22,6 +22,7 @@ namespace NumericalMethods
 		double L;
 		double Uo;
 		double step;
+		double t;
 
 		public MainWindow()
 		{
@@ -63,7 +64,28 @@ namespace NumericalMethods
 
 		double Function2(double x, double v)
 		{
-			return  -(g / L) * Math.Sin(v);
+			return -(g / L) * Math.Sin(v);
+		}
+
+
+		void Draw()
+		{
+			PointPairList list = new PointPairList();
+			MainGraph.GraphPane.CurveList.Clear();
+			list.Add(new PointPair(Xn, Yn));
+
+			for (int i = 0; i < 100; ++i)
+			{
+				Method(Xn, Yn, step);
+				t += step;
+				list.Add(new PointPair(t, Xn));
+			}
+
+			LineItem li = pane.AddCurve("", list, Color.Red, SymbolType.None);
+
+			MainGraph.Hide();
+			MainGraph.AxisChange();
+			MainGraph.Show();
 		}
 
 
@@ -94,26 +116,12 @@ namespace NumericalMethods
 			Uo   = ExtractNumber(UoTextBox.Text);
 			g    = ExtractNumber(gTextBox.Text);
 			Xn   = ExtractNumber(XoTextBox.Text);
-			Yn  = ExtractNumber(U_oTextBox.Text);
+			Yn   = ExtractNumber(U_oTextBox.Text);
 			L    = ExtractNumber(LTextBox.Text);
-			step = ExtractNumber(StepTextBox.Text);			
+			step = ExtractNumber(StepTextBox.Text);
+			t    = ExtractNumber(TTextBox.Text);
 
-			// Draw
-			PointPairList list = new PointPairList();
-			list.Add(new PointPair(Xn, Yn));
-
-			for(int i = 0; i < 100; ++i)
-			{
-				Method(Xn, Yn, step);
-
-				list.Add(new PointPair(Xn, Yn));
-			}
-
-			LineItem li = pane.AddCurve("", list, Color.Red, SymbolType.None);
-
-			MainGraph.Hide();
-			MainGraph.AxisChange();
-			MainGraph.Show();
+			Draw();
 		}
 	}
 }

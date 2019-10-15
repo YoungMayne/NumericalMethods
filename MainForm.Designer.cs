@@ -30,6 +30,8 @@
 		{
 			this.TabControl = new System.Windows.Forms.TabControl();
 			this.Page1 = new System.Windows.Forms.TabPage();
+			this.label6 = new System.Windows.Forms.Label();
+			this.StepTextBox = new System.Windows.Forms.TextBox();
 			this.MainButton = new System.Windows.Forms.Button();
 			this.label5 = new System.Windows.Forms.Label();
 			this.LTextBox = new System.Windows.Forms.TextBox();
@@ -44,8 +46,20 @@
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.MainGraph = new ZedGraph.ZedGraphControl();
 			this.Page2 = new System.Windows.Forms.TabPage();
-			this.StepTextBox = new System.Windows.Forms.TextBox();
-			this.label6 = new System.Windows.Forms.Label();
+			this.TTextBox = new System.Windows.Forms.TextBox();
+			this.label7 = new System.Windows.Forms.Label();
+			this.i = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Hi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Xi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Vi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Vihalf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Vinice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Vinice2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.S = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Vitarg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Viitog = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Ui = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.module = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.TabControl.SuspendLayout();
 			this.Page1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -64,6 +78,8 @@
 			// 
 			// Page1
 			// 
+			this.Page1.Controls.Add(this.label7);
+			this.Page1.Controls.Add(this.TTextBox);
 			this.Page1.Controls.Add(this.label6);
 			this.Page1.Controls.Add(this.StepTextBox);
 			this.Page1.Controls.Add(this.MainButton);
@@ -86,6 +102,22 @@
 			this.Page1.TabIndex = 0;
 			this.Page1.Text = "Задача";
 			this.Page1.UseVisualStyleBackColor = true;
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(355, 14);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(27, 13);
+			this.label6.TabIndex = 16;
+			this.label6.Text = "Шаг";
+			// 
+			// StepTextBox
+			// 
+			this.StepTextBox.Location = new System.Drawing.Point(306, 30);
+			this.StepTextBox.Name = "StepTextBox";
+			this.StepTextBox.Size = new System.Drawing.Size(121, 20);
+			this.StepTextBox.TabIndex = 15;
 			// 
 			// MainButton
 			// 
@@ -181,6 +213,19 @@
 			// dataGridView1
 			// 
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.i,
+            this.Hi,
+            this.Xi,
+            this.Vi,
+            this.Vihalf,
+            this.Vinice,
+            this.Vinice2,
+            this.S,
+            this.Vitarg,
+            this.Viitog,
+            this.Ui,
+            this.module});
 			this.dataGridView1.Location = new System.Drawing.Point(8, 128);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.Size = new System.Drawing.Size(625, 498);
@@ -205,21 +250,81 @@
 			this.Page2.Text = "Справка";
 			this.Page2.UseVisualStyleBackColor = true;
 			// 
-			// StepTextBox
+			// TTextBox
 			// 
-			this.StepTextBox.Location = new System.Drawing.Point(306, 30);
-			this.StepTextBox.Name = "StepTextBox";
-			this.StepTextBox.Size = new System.Drawing.Size(121, 20);
-			this.StepTextBox.TabIndex = 15;
+			this.TTextBox.Location = new System.Drawing.Point(457, 30);
+			this.TTextBox.Name = "TTextBox";
+			this.TTextBox.Size = new System.Drawing.Size(121, 20);
+			this.TTextBox.TabIndex = 17;
 			// 
-			// label6
+			// label7
 			// 
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(355, 14);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(27, 13);
-			this.label6.TabIndex = 16;
-			this.label6.Text = "Шаг";
+			this.label7.AutoSize = true;
+			this.label7.Location = new System.Drawing.Point(514, 13);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(10, 13);
+			this.label7.TabIndex = 18;
+			this.label7.Text = "t";
+			// 
+			// i
+			// 
+			this.i.HeaderText = "i";
+			this.i.Name = "i";
+			// 
+			// Hi
+			// 
+			this.Hi.HeaderText = "Hi";
+			this.Hi.Name = "Hi";
+			// 
+			// Xi
+			// 
+			this.Xi.HeaderText = "Xi";
+			this.Xi.Name = "Xi";
+			// 
+			// Vi
+			// 
+			this.Vi.HeaderText = "Vi";
+			this.Vi.Name = "Vi";
+			// 
+			// Vihalf
+			// 
+			this.Vihalf.HeaderText = "Vi+1/2";
+			this.Vihalf.Name = "Vihalf";
+			// 
+			// Vinice
+			// 
+			this.Vinice.HeaderText = "Vi удв.";
+			this.Vinice.Name = "Vinice";
+			// 
+			// Vinice2
+			// 
+			this.Vinice2.HeaderText = "Vi удв. - Vi";
+			this.Vinice2.Name = "Vinice2";
+			// 
+			// S
+			// 
+			this.S.HeaderText = "S";
+			this.S.Name = "S";
+			// 
+			// Vitarg
+			// 
+			this.Vitarg.HeaderText = "Vi уточ.";
+			this.Vitarg.Name = "Vitarg";
+			// 
+			// Viitog
+			// 
+			this.Viitog.HeaderText = "Vi итог.";
+			this.Viitog.Name = "Viitog";
+			// 
+			// Ui
+			// 
+			this.Ui.HeaderText = "Ui";
+			this.Ui.Name = "Ui";
+			// 
+			// module
+			// 
+			this.module.HeaderText = "|Ui - Vi итог|";
+			this.module.Name = "module";
 			// 
 			// MainWindow
 			// 
@@ -261,6 +366,20 @@
 		private System.Windows.Forms.Button MainButton;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.TextBox StepTextBox;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.TextBox TTextBox;
+		private System.Windows.Forms.DataGridViewTextBoxColumn i;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Hi;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Xi;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Vi;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Vihalf;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Vinice;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Vinice2;
+		private System.Windows.Forms.DataGridViewTextBoxColumn S;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Vitarg;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Viitog;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Ui;
+		private System.Windows.Forms.DataGridViewTextBoxColumn module;
 	}
 }
 

@@ -30,21 +30,22 @@
 		{
 			this.TabControl = new System.Windows.Forms.TabControl();
 			this.Page1 = new System.Windows.Forms.TabPage();
+			this.MainButton = new System.Windows.Forms.Button();
+			this.label5 = new System.Windows.Forms.Label();
+			this.LTextBox = new System.Windows.Forms.TextBox();
+			this.gTextBox = new System.Windows.Forms.TextBox();
+			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.U_oTextBox = new System.Windows.Forms.TextBox();
 			this.UoTextBox = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.XoTextBox = new System.Windows.Forms.TextBox();
-			this.MethodLabel = new System.Windows.Forms.Label();
-			this.MethodComboBox = new System.Windows.Forms.ComboBox();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
+			this.MainGraph = new ZedGraph.ZedGraphControl();
 			this.Page2 = new System.Windows.Forms.TabPage();
-			this.label4 = new System.Windows.Forms.Label();
-			this.gTextBox = new System.Windows.Forms.TextBox();
-			this.LTextBox = new System.Windows.Forms.TextBox();
-			this.label5 = new System.Windows.Forms.Label();
+			this.StepTextBox = new System.Windows.Forms.TextBox();
+			this.label6 = new System.Windows.Forms.Label();
 			this.TabControl.SuspendLayout();
 			this.Page1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -63,6 +64,9 @@
 			// 
 			// Page1
 			// 
+			this.Page1.Controls.Add(this.label6);
+			this.Page1.Controls.Add(this.StepTextBox);
+			this.Page1.Controls.Add(this.MainButton);
 			this.Page1.Controls.Add(this.label5);
 			this.Page1.Controls.Add(this.LTextBox);
 			this.Page1.Controls.Add(this.gTextBox);
@@ -73,10 +77,8 @@
 			this.Page1.Controls.Add(this.UoTextBox);
 			this.Page1.Controls.Add(this.label1);
 			this.Page1.Controls.Add(this.XoTextBox);
-			this.Page1.Controls.Add(this.MethodLabel);
-			this.Page1.Controls.Add(this.MethodComboBox);
 			this.Page1.Controls.Add(this.dataGridView1);
-			this.Page1.Controls.Add(this.zedGraphControl1);
+			this.Page1.Controls.Add(this.MainGraph);
 			this.Page1.Location = new System.Drawing.Point(4, 19);
 			this.Page1.Name = "Page1";
 			this.Page1.Padding = new System.Windows.Forms.Padding(3);
@@ -85,10 +87,52 @@
 			this.Page1.Text = "Задача";
 			this.Page1.UseVisualStyleBackColor = true;
 			// 
+			// MainButton
+			// 
+			this.MainButton.Location = new System.Drawing.Point(1170, 68);
+			this.MainButton.Name = "MainButton";
+			this.MainButton.Size = new System.Drawing.Size(94, 50);
+			this.MainButton.TabIndex = 14;
+			this.MainButton.Text = "Вычислить";
+			this.MainButton.UseVisualStyleBackColor = true;
+			this.MainButton.Click += new System.EventHandler(this.MainButton_Click);
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(360, 68);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(13, 13);
+			this.label5.TabIndex = 13;
+			this.label5.Text = "L";
+			// 
+			// LTextBox
+			// 
+			this.LTextBox.Location = new System.Drawing.Point(306, 84);
+			this.LTextBox.Name = "LTextBox";
+			this.LTextBox.Size = new System.Drawing.Size(121, 20);
+			this.LTextBox.TabIndex = 12;
+			// 
+			// gTextBox
+			// 
+			this.gTextBox.Location = new System.Drawing.Point(158, 30);
+			this.gTextBox.Name = "gTextBox";
+			this.gTextBox.Size = new System.Drawing.Size(121, 20);
+			this.gTextBox.TabIndex = 11;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(214, 14);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(13, 13);
+			this.label4.TabIndex = 10;
+			this.label4.Text = "g";
+			// 
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(204, 68);
+			this.label3.Location = new System.Drawing.Point(208, 68);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(23, 13);
 			this.label3.TabIndex = 9;
@@ -97,7 +141,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(207, 14);
+			this.label2.Location = new System.Drawing.Point(58, 13);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(21, 13);
 			this.label2.TabIndex = 8;
@@ -112,7 +156,7 @@
 			// 
 			// UoTextBox
 			// 
-			this.UoTextBox.Location = new System.Drawing.Point(158, 30);
+			this.UoTextBox.Location = new System.Drawing.Point(8, 30);
 			this.UoTextBox.Name = "UoTextBox";
 			this.UoTextBox.Size = new System.Drawing.Size(121, 20);
 			this.UoTextBox.TabIndex = 6;
@@ -120,7 +164,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(55, 68);
+			this.label1.Location = new System.Drawing.Point(58, 68);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(20, 13);
 			this.label1.TabIndex = 5;
@@ -134,26 +178,6 @@
 			this.XoTextBox.TabIndex = 4;
 			this.XoTextBox.TextChanged += new System.EventHandler(this.XoTextBox_TextChanged);
 			// 
-			// MethodLabel
-			// 
-			this.MethodLabel.AutoSize = true;
-			this.MethodLabel.Location = new System.Drawing.Point(46, 13);
-			this.MethodLabel.Name = "MethodLabel";
-			this.MethodLabel.Size = new System.Drawing.Size(39, 13);
-			this.MethodLabel.TabIndex = 3;
-			this.MethodLabel.Text = "Метод";
-			// 
-			// MethodComboBox
-			// 
-			this.MethodComboBox.BackColor = System.Drawing.SystemColors.Window;
-			this.MethodComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.MethodComboBox.FormattingEnabled = true;
-			this.MethodComboBox.Location = new System.Drawing.Point(8, 29);
-			this.MethodComboBox.Name = "MethodComboBox";
-			this.MethodComboBox.Size = new System.Drawing.Size(121, 21);
-			this.MethodComboBox.TabIndex = 2;
-			this.MethodComboBox.SelectedIndexChanged += new System.EventHandler(this.MethodComboBox_SelectedIndexChanged);
-			// 
 			// dataGridView1
 			// 
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -162,14 +186,14 @@
 			this.dataGridView1.Size = new System.Drawing.Size(625, 498);
 			this.dataGridView1.TabIndex = 1;
 			// 
-			// zedGraphControl1
+			// MainGraph
 			// 
-			this.zedGraphControl1.IsShowPointValues = false;
-			this.zedGraphControl1.Location = new System.Drawing.Point(639, 128);
-			this.zedGraphControl1.Name = "zedGraphControl1";
-			this.zedGraphControl1.PointValueFormat = "G";
-			this.zedGraphControl1.Size = new System.Drawing.Size(625, 498);
-			this.zedGraphControl1.TabIndex = 0;
+			this.MainGraph.IsShowPointValues = false;
+			this.MainGraph.Location = new System.Drawing.Point(639, 128);
+			this.MainGraph.Name = "MainGraph";
+			this.MainGraph.PointValueFormat = "G";
+			this.MainGraph.Size = new System.Drawing.Size(625, 498);
+			this.MainGraph.TabIndex = 0;
 			// 
 			// Page2
 			// 
@@ -181,37 +205,21 @@
 			this.Page2.Text = "Справка";
 			this.Page2.UseVisualStyleBackColor = true;
 			// 
-			// label4
+			// StepTextBox
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(362, 14);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(13, 13);
-			this.label4.TabIndex = 10;
-			this.label4.Text = "g";
+			this.StepTextBox.Location = new System.Drawing.Point(306, 30);
+			this.StepTextBox.Name = "StepTextBox";
+			this.StepTextBox.Size = new System.Drawing.Size(121, 20);
+			this.StepTextBox.TabIndex = 15;
 			// 
-			// gTextBox
+			// label6
 			// 
-			this.gTextBox.Location = new System.Drawing.Point(306, 30);
-			this.gTextBox.Name = "gTextBox";
-			this.gTextBox.Size = new System.Drawing.Size(121, 20);
-			this.gTextBox.TabIndex = 11;
-			// 
-			// LTextBox
-			// 
-			this.LTextBox.Location = new System.Drawing.Point(306, 84);
-			this.LTextBox.Name = "LTextBox";
-			this.LTextBox.Size = new System.Drawing.Size(121, 20);
-			this.LTextBox.TabIndex = 12;
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(362, 68);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(13, 13);
-			this.label5.TabIndex = 13;
-			this.label5.Text = "L";
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(355, 14);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(27, 13);
+			this.label6.TabIndex = 16;
+			this.label6.Text = "Шаг";
 			// 
 			// MainWindow
 			// 
@@ -239,9 +247,7 @@
 		private System.Windows.Forms.TabPage Page1;
 		private System.Windows.Forms.TabPage Page2;
 		private System.Windows.Forms.DataGridView dataGridView1;
-		private ZedGraph.ZedGraphControl zedGraphControl1;
-		private System.Windows.Forms.ComboBox MethodComboBox;
-		private System.Windows.Forms.Label MethodLabel;
+		private ZedGraph.ZedGraphControl MainGraph;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox U_oTextBox;
@@ -252,6 +258,9 @@
 		private System.Windows.Forms.TextBox LTextBox;
 		private System.Windows.Forms.TextBox gTextBox;
 		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Button MainButton;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.TextBox StepTextBox;
 	}
 }
 

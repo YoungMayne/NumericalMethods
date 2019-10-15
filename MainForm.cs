@@ -14,21 +14,25 @@ namespace NumericalMethods
 {
 	public partial class MainWindow : Form
 	{
-		Method method;
+		GraphPane pane;
+
+		double Xn;
+		double Yn;
+		double g;
+		double L;
+		double Uo;
+		double step;
 
 		public MainWindow()
 		{
 			InitializeComponent();
 
-			MethodComboBox.Items.Add("Эйлера 1го порядка");
-			MethodComboBox.Items.Add("Рунге-Кутта 2го порядка");
-			MethodComboBox.SelectedIndex = 0;
+			pane = MainGraph.GraphPane;
 
 			XoTextBox.Text = "0";
 			UoTextBox.Text = "0.314";
 			U_oTextBox.Text = "0";
 		}
-
 
 		double ExtractNumber(string str)
 		{			
@@ -51,27 +55,65 @@ namespace NumericalMethods
 		}
 
 
-		private void MethodComboBox_SelectedIndexChanged(object sender, EventArgs e)
+		double Function1(double x, double v)
 		{
-			ComboBox box = (ComboBox)sender;
+			return v;
+		}
 
-			switch (box.SelectedIndex)
-			{
-				case 0:
-					method = new Euler();
-					break;
-				case 1:
-					method = new RK2();
-					break;
-				default:
-					break;
-			}
+
+		double Function2(double x, double v)
+		{
+			return  -(g / L) * Math.Sin(v);
+		}
+
+
+		void Method(double x, double v, double step)
+		{	
+			double k1 = Function1(Xn, Yn) * step;
+			double m1 = Function2(Xn, Yn) * step;
+			double k2 = Function1(Xn + k1 / 2.0, Yn + m1 / 2.0) * step;
+			double m2 = Function2(Xn + k1 / 2.0, Yn + m1 / 2.0) * step;
+			double k3 = Function1(Xn + k2 / 2.0, Yn + m2 / 2.0) * step;
+			double m3 = Function2(Xn + k2 / 2.0, Yn + m2 / 2.0) * step;
+			double k4 = Function1(Xn + k3, Yn + m3) * step;
+			double m4 = Function2(Xn + k3, Yn + m3) * step;
+
+			Xn = Xn + 1.0 / 6.0 * (k1 + 2.0 * k2 + 2.0 * k3 + k4);
+			Yn = Yn + 1.0 / 6.0 * (m1 + 2.0 * m2 + 2.0 * m3 + m4);
 		}
 
 
 		private void XoTextBox_TextChanged(object sender, EventArgs e)
 		{
 			double number = ExtractNumber(((TextBox)sender).Text);
+		}
+
+
+		private void MainButton_Click(object sender, EventArgs e)
+		{
+			Uo   = ExtractNumber(UoTextBox.Text);
+			g    = ExtractNumber(gTextBox.Text);
+			Xn   = ExtractNumber(XoTextBox.Text);
+			Yn  = ExtractNumber(U_oTextBox.Text);
+			L    = ExtractNumber(LTextBox.Text);
+			step = ExtractNumber(StepTextBox.Text);			
+
+			// Draw
+			PointPairList list = new PointPairList();
+			list.Add(new PointPair(Xn, Yn));
+
+			for(int i = 0; i < 100; ++i)
+			{
+				Method(Xn, Yn, step);
+
+				list.Add(new PointPair(Xn, Yn));
+			}
+
+			LineItem li = pane.AddCurve("", list, Color.Red, SymbolType.None);
+
+			MainGraph.Hide();
+			MainGraph.AxisChange();
+			MainGraph.Show();
 		}
 	}
 }

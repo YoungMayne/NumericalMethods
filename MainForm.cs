@@ -16,7 +16,7 @@ namespace NumericalMethods
 	{
 		GraphPane pane;
 
-        public Method method = new Method();
+    public Method method = new Method();
 
 		public MainWindow()
 		{
@@ -60,6 +60,7 @@ namespace NumericalMethods
 
 		private void MainButton_Click(object sender, EventArgs e)
 		{
+
 			method.u1   = double.Parse(UoTextBox.Text);
 			method.functions.g    = double.Parse(gTextBox.Text);
 			method.x   = double.Parse(XoTextBox.Text);
@@ -85,6 +86,7 @@ namespace NumericalMethods
 			MainGraph.AxisChange();
             MainGraph.Invalidate();
             //MainGraph.Show();
+
 		}
 	}
 }

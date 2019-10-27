@@ -16,12 +16,7 @@ namespace NumericalMethods
 	{
 		GraphPane pane;
 
-		double Xn;
-		double Yn;
-		double g;
-		double L;
-		double Uo;
-		double step;
+        public Method method = new Method();
 
 		public MainWindow()
 		{
@@ -30,8 +25,11 @@ namespace NumericalMethods
 			pane = MainGraph.GraphPane;
 
 			XoTextBox.Text = "0";
-			UoTextBox.Text = "0.314";
+			UoTextBox.Text = "1,1";
 			U_oTextBox.Text = "0";
+            LTextBox.Text = "1,0";
+            gTextBox.Text = "10,0";
+            StepTextBox.Text = "0,001";
 		}
 
 		double ExtractNumber(string str)
@@ -54,35 +52,6 @@ namespace NumericalMethods
 			return str.Length == 0 ? 0.0 : double.Parse(str);
 		}
 
-
-		double Function1(double x, double v)
-		{
-			return v;
-		}
-
-
-		double Function2(double x, double v)
-		{
-			return  -(g / L) * Math.Sin(v);
-		}
-
-
-		void Method(double x, double v, double step)
-		{	
-			double k1 = Function1(Xn, Yn) * step;
-			double m1 = Function2(Xn, Yn) * step;
-			double k2 = Function1(Xn + k1 / 2.0, Yn + m1 / 2.0) * step;
-			double m2 = Function2(Xn + k1 / 2.0, Yn + m1 / 2.0) * step;
-			double k3 = Function1(Xn + k2 / 2.0, Yn + m2 / 2.0) * step;
-			double m3 = Function2(Xn + k2 / 2.0, Yn + m2 / 2.0) * step;
-			double k4 = Function1(Xn + k3, Yn + m3) * step;
-			double m4 = Function2(Xn + k3, Yn + m3) * step;
-
-			Xn = Xn + 1.0 / 6.0 * (k1 + 2.0 * k2 + 2.0 * k3 + k4);
-			Yn = Yn + 1.0 / 6.0 * (m1 + 2.0 * m2 + 2.0 * m3 + m4);
-		}
-
-
 		private void XoTextBox_TextChanged(object sender, EventArgs e)
 		{
 			double number = ExtractNumber(((TextBox)sender).Text);
@@ -91,29 +60,31 @@ namespace NumericalMethods
 
 		private void MainButton_Click(object sender, EventArgs e)
 		{
-			Uo   = ExtractNumber(UoTextBox.Text);
-			g    = ExtractNumber(gTextBox.Text);
-			Xn   = ExtractNumber(XoTextBox.Text);
-			Yn  = ExtractNumber(U_oTextBox.Text);
-			L    = ExtractNumber(LTextBox.Text);
-			step = ExtractNumber(StepTextBox.Text);			
-
+			method.u1   = double.Parse(UoTextBox.Text);
+			method.functions.g    = double.Parse(gTextBox.Text);
+			method.x   = double.Parse(XoTextBox.Text);
+			method.u2  = double.Parse(U_oTextBox.Text);
+			method.functions.L    = double.Parse(LTextBox.Text);
+			method.h = double.Parse(StepTextBox.Text);
+            method.eps = 0.00001;
+            // to do eps
 			// Draw
 			PointPairList list = new PointPairList();
-			list.Add(new PointPair(Xn, Yn));
 
-			for(int i = 0; i < 100; ++i)
+			for(int i = 0; i < 1000; ++i)
 			{
-				Method(Xn, Yn, step);
+                method.OptimizationStep();
+                method.Step();
 
-				list.Add(new PointPair(Xn, Yn));
+				list.Add(new PointPair(method.x, method.u1));
 			}
 
 			LineItem li = pane.AddCurve("", list, Color.Red, SymbolType.None);
 
-			MainGraph.Hide();
+			//MainGraph.Hide();
 			MainGraph.AxisChange();
-			MainGraph.Show();
+            MainGraph.Invalidate();
+            //MainGraph.Show();
 		}
 	}
 }

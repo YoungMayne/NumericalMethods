@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace NumericalMethods
 {
@@ -49,7 +50,7 @@ namespace NumericalMethods
             return curU1;
         }
 
-        public void OptimizationStep()
+        public void OptimizationStep(ref List<List<double>> table, ref int doubles, ref int divides)
         {
             double u = TryStep(x,u1,u2,h,1);
             double _u = TryStep(x, u1, u2, h / 2.0, 2);
@@ -58,13 +59,20 @@ namespace NumericalMethods
                 h /= 2;
                 u = TryStep(x, u1, u2, h, 1);
                 _u = TryStep(x, u1, u2, h / 2.0, 2);
+				divides++;
             }
             while (Math.Abs(_u - u) < eps / 16.0)
             {
                 h *= 2;
                 u = TryStep(x, u1, u2, h, 1);
                 _u = TryStep(x, u1, u2, h / 2.0, 2);
+				doubles++;
             }
+
+			table.Last().Add(h);
+			table.Last().Add(x);
+			table.Last().Add(u1);
+			table.Last().Add(_u);
         }
 
         public void Step()

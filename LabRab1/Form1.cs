@@ -73,6 +73,7 @@ namespace LabRab1
             List<List<double>> table = new List<List<double>>();
             List<double> row         = new List<double>(11);
             List<double> Slist       = new List<double>();
+            List<double> Xlist       = new List<double>();
 
             double Vstep = V;
             double Vhalf;
@@ -112,6 +113,7 @@ namespace LabRab1
                 }
 
                 Slist.Add(S);
+                Xlist.Add(curX);
 
                 // fill the graph
                 solutionWithStep.Add(new PointPair(curX, Vstep));
@@ -187,24 +189,28 @@ namespace LabRab1
             }
 
             // Fill reference
-            double minS = Math.Abs(Slist[0]);
-            double maxS = Math.Abs(Slist[0]);
+            double minS  = Math.Abs(Slist[0]);
+            double maxS  = Math.Abs(Slist[0]);
+            double maxSx = 0;
+            double minSx = 0;
 
             for(int i = 1; i < Slist.Count; ++i)
             {
                 if(Math.Abs(Slist[i]) > maxS)
                 {
                     maxS = Math.Abs(Slist[i]);
+                    maxSx = Xlist[i];
                 }
 
                 if(Math.Abs(Slist[i]) < minS)
                 {
                     minS = Math.Abs(Slist[i]);
+                    minSx = Xlist[i];
                 }
             }
 
-            minSLabel.Text = "min |S| = "  + minS.ToString();
-            maxSLabel.Text = "max |S| = "  + maxS.ToString();
+            minSLabel.Text = "min |S| = "  + minS.ToString() + "\n в точке x = " + minSx.ToString();
+            maxSLabel.Text = "max |S| = "  + maxS.ToString() + "\n в точке x = " + maxSx.ToString();
             IncLabel.Text  = "Ув. шага = " + C2.ToString();
             DecLabel.Text  = "Ум. шага = " + C1.ToString();
         }

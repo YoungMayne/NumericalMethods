@@ -46,6 +46,11 @@
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.IncLabel = new System.Windows.Forms.Label();
+            this.DecLabel = new System.Windows.Forms.Label();
+            this.minSLabel = new System.Windows.Forms.Label();
+            this.maxSLabel = new System.Windows.Forms.Label();
             this.HTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -66,11 +71,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.NTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.IncLabel = new System.Windows.Forms.Label();
-            this.DecLabel = new System.Windows.Forms.Label();
-            this.minSLabel = new System.Windows.Forms.Label();
-            this.maxSLabel = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -258,6 +258,56 @@
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Задача";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Papyrus", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(140, 339);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(65, 21);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Справка";
+            // 
+            // IncLabel
+            // 
+            this.IncLabel.AutoSize = true;
+            this.IncLabel.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.IncLabel.Location = new System.Drawing.Point(10, 517);
+            this.IncLabel.Name = "IncLabel";
+            this.IncLabel.Size = new System.Drawing.Size(104, 25);
+            this.IncLabel.TabIndex = 25;
+            this.IncLabel.Text = "Ув. шага = ";
+            // 
+            // DecLabel
+            // 
+            this.DecLabel.AutoSize = true;
+            this.DecLabel.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DecLabel.Location = new System.Drawing.Point(10, 485);
+            this.DecLabel.Name = "DecLabel";
+            this.DecLabel.Size = new System.Drawing.Size(109, 25);
+            this.DecLabel.TabIndex = 24;
+            this.DecLabel.Text = "Ум. шага = ";
+            // 
+            // minSLabel
+            // 
+            this.minSLabel.AutoSize = true;
+            this.minSLabel.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.minSLabel.Location = new System.Drawing.Point(10, 427);
+            this.minSLabel.Name = "minSLabel";
+            this.minSLabel.Size = new System.Drawing.Size(98, 25);
+            this.minSLabel.TabIndex = 23;
+            this.minSLabel.Text = "min |S| = ";
+            // 
+            // maxSLabel
+            // 
+            this.maxSLabel.AutoSize = true;
+            this.maxSLabel.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.maxSLabel.Location = new System.Drawing.Point(10, 364);
+            this.maxSLabel.Name = "maxSLabel";
+            this.maxSLabel.Size = new System.Drawing.Size(102, 25);
+            this.maxSLabel.TabIndex = 22;
+            this.maxSLabel.Text = "max |S| = ";
+            // 
             // HTextBox
             // 
             this.HTextBox.Location = new System.Drawing.Point(64, 211);
@@ -433,56 +483,6 @@
             this.label1.Size = new System.Drawing.Size(48, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "N = ";
-            // 
-            // IncLabel
-            // 
-            this.IncLabel.AutoSize = true;
-            this.IncLabel.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.IncLabel.Location = new System.Drawing.Point(10, 527);
-            this.IncLabel.Name = "IncLabel";
-            this.IncLabel.Size = new System.Drawing.Size(104, 25);
-            this.IncLabel.TabIndex = 25;
-            this.IncLabel.Text = "Ув. шага = ";
-            // 
-            // DecLabel
-            // 
-            this.DecLabel.AutoSize = true;
-            this.DecLabel.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DecLabel.Location = new System.Drawing.Point(10, 495);
-            this.DecLabel.Name = "DecLabel";
-            this.DecLabel.Size = new System.Drawing.Size(109, 25);
-            this.DecLabel.TabIndex = 24;
-            this.DecLabel.Text = "Ум. шага = ";
-            // 
-            // minSLabel
-            // 
-            this.minSLabel.AutoSize = true;
-            this.minSLabel.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.minSLabel.Location = new System.Drawing.Point(10, 450);
-            this.minSLabel.Name = "minSLabel";
-            this.minSLabel.Size = new System.Drawing.Size(98, 25);
-            this.minSLabel.TabIndex = 23;
-            this.minSLabel.Text = "min |S| = ";
-            // 
-            // maxSLabel
-            // 
-            this.maxSLabel.AutoSize = true;
-            this.maxSLabel.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.maxSLabel.Location = new System.Drawing.Point(10, 418);
-            this.maxSLabel.Name = "maxSLabel";
-            this.maxSLabel.Size = new System.Drawing.Size(102, 25);
-            this.maxSLabel.TabIndex = 22;
-            this.maxSLabel.Text = "max |S| = ";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Papyrus", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(138, 395);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 21);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "Справка";
             // 
             // Form1
             // 

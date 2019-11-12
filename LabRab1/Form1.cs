@@ -42,6 +42,11 @@ namespace LabRab1
             MainGraph.GraphPane.Title       = "";
             MainGraph.GraphPane.XAxis.Title = "X";
             MainGraph.GraphPane.YAxis.Title = "dI/dx";
+
+            minSLabel.Text = "min |S| = "  + 0.ToString();
+            maxSLabel.Text = "max |S| = "  + 0.ToString();
+            IncLabel.Text  = "Ув. шага = " + 0.ToString();
+            DecLabel.Text  = "Ум. шага = " + 0.ToString();
         }
 
         private double Function(double x, double v)
@@ -67,6 +72,7 @@ namespace LabRab1
 
             List<List<double>> table = new List<List<double>>();
             List<double> row         = new List<double>(11);
+            List<double> Slist       = new List<double>();
 
             double Vstep = V;
             double Vhalf;
@@ -91,7 +97,7 @@ namespace LabRab1
 
                 S = (Vhalf - Vstep) / (Math.Pow(2, 5) - 1);
 
-                if(Math.Abs(S) > eps)
+                if (Math.Abs(S) > eps)
                 {
                     H *= 0.5;
                     Vstep = Vprev;
@@ -104,6 +110,8 @@ namespace LabRab1
                     H *= 2.0;
                     C2++;
                 }
+
+                Slist.Add(S);
 
                 // fill the graph
                 solutionWithStep.Add(new PointPair(curX, Vstep));
@@ -177,6 +185,28 @@ namespace LabRab1
                     rows[i].Cells[j].Value = table[i][j];
                 }
             }
+
+            // Fill reference
+            double minS = Math.Abs(Slist[0]);
+            double maxS = Math.Abs(Slist[0]);
+
+            for(int i = 1; i < Slist.Count; ++i)
+            {
+                if(Math.Abs(Slist[i]) > maxS)
+                {
+                    maxS = Math.Abs(Slist[i]);
+                }
+
+                if(Math.Abs(Slist[i]) < minS)
+                {
+                    minS = Math.Abs(Slist[i]);
+                }
+            }
+
+            minSLabel.Text = "min |S| = "  + minS.ToString();
+            maxSLabel.Text = "max |S| = "  + maxS.ToString();
+            IncLabel.Text  = "Ув. шага = " + C2.ToString();
+            DecLabel.Text  = "Ум. шага = " + C1.ToString();
         }
 
         private bool CheckInput()

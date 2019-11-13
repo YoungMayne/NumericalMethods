@@ -13,6 +13,8 @@ namespace LabRab1
 {
     public partial class Form1 : Form
     {
+        Random random;
+
         private double curX;
         private double maxX;
         private double H;
@@ -47,6 +49,12 @@ namespace LabRab1
             maxSLabel.Text = "max |S| = "  + 0.ToString();
             IncLabel.Text  = "Ув. шага = " + 0.ToString();
             DecLabel.Text  = "Ум. шага = " + 0.ToString();
+
+            SolutionType.Items.Add("Решение с постоянным шагом");
+            SolutionType.Items.Add("Решение с контролем погрешности");
+            SolutionType.SelectedIndex = 0;
+
+            random = new Random();
         }
 
         private double Function(double x, double v)
@@ -65,9 +73,36 @@ namespace LabRab1
             return v + (h * 0.1666666666666667 * (k1 + (2.0 * k2) + (2.0 * k3) + k4));
         }
 
-        private void Process()
+        private void ProcessStatic()
         {
-            PointPairList solutionWithStep     = new PointPairList();
+            PointPairList solution = new PointPairList();
+
+            for (int i = 0; (i < N) && (curX < maxX); i++, curX += H)
+            {
+                V = Method(V, curX, H);
+                solution.Add(new PointPair(curX, V));
+            }
+
+            // Draw points
+            GraphPane pane = MainGraph.GraphPane;
+
+            if (ReloadCheckBox.Checked)
+            {
+                pane.CurveList.Clear();
+            }
+
+            pane.AddCurve("Решение c постоянным шагом", 
+                          solution, 
+                          Color.FromArgb(random.Next() % 256, 
+                                         random.Next() % 256, 
+                                         random.Next() % 256), 
+                          SymbolType.None);
+
+            MainGraph.Refresh();
+        }
+
+        private void ProcessDynamic()
+        {
             PointPairList solutionWithHalfStep = new PointPairList();
 
             List<List<double>> table = new List<List<double>>();
@@ -116,7 +151,6 @@ namespace LabRab1
                 Xlist.Add(curX);
 
                 // fill the graph
-                solutionWithStep.Add(new PointPair(curX, Vstep));
                 solutionWithHalfStep.Add(new PointPair(curX, Vhalf));
 
                 // Create table
@@ -165,14 +199,20 @@ namespace LabRab1
 
             // Draw points
             GraphPane pane = MainGraph.GraphPane;
-            pane.CurveList.Clear();
 
-            pane.AddCurve("Решение", solutionWithStep, Color.Blue, SymbolType.None);
-            pane.AddCurve("Решение с половинным шагом", solutionWithHalfStep, Color.Red, SymbolType.None);
+            if (ReloadCheckBox.Checked)
+            {
+                pane.CurveList.Clear();
+            }
 
-            MainGraph.Hide();
-            MainGraph.AxisChange();
-            MainGraph.Show();
+            pane.AddCurve("Решение с половинным шагом", 
+                          solutionWithHalfStep,
+                          Color.FromArgb(random.Next() % 256,
+                                         random.Next() % 256,
+                                         random.Next() % 256),
+                          SymbolType.None);
+
+            MainGraph.Refresh();
 
             // Fill table
             DataGridViewRowCollection rows = MainTable.Rows;
@@ -186,6 +226,11 @@ namespace LabRab1
                 {
                     rows[i].Cells[j].Value = table[i][j];
                 }
+            }
+
+            if((0 == Slist.Count) || (0 == Xlist.Count))
+            {
+                return;
             }
 
             // Fill reference
@@ -273,7 +318,23 @@ namespace LabRab1
                 return;
             }
 
-            Process();
+            switch (SolutionType.SelectedIndex)
+            {
+                case 0:
+                    ProcessStatic();
+                    break;
+                case 1:
+                    ProcessDynamic();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void SolutionType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            EpsilonLabel.Visible   = (1 == SolutionType.SelectedIndex);
+            EpsilonTextBox.Visible = (1 == SolutionType.SelectedIndex);
         }
     }
 

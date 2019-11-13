@@ -56,9 +56,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.EpsilonTextBox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.EpsilonLabel = new System.Windows.Forms.Label();
             this.XmaxTextBox = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.XmaxLabel = new System.Windows.Forms.Label();
             this.LTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.RTextBox = new System.Windows.Forms.TextBox();
@@ -71,6 +71,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.NTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ReloadCheckBox = new System.Windows.Forms.CheckBox();
+            this.SolutionType = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -86,17 +88,17 @@
             this.MainGraph.Location = new System.Drawing.Point(-4, -16);
             this.MainGraph.Name = "MainGraph";
             this.MainGraph.PointValueFormat = "G";
-            this.MainGraph.Size = new System.Drawing.Size(763, 641);
+            this.MainGraph.Size = new System.Drawing.Size(811, 641);
             this.MainGraph.TabIndex = 0;
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(338, 0);
+            this.tabControl1.Location = new System.Drawing.Point(517, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(763, 647);
+            this.tabControl1.Size = new System.Drawing.Size(811, 647);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -105,7 +107,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(755, 621);
+            this.tabPage1.Size = new System.Drawing.Size(803, 621);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "График";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -116,7 +118,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(755, 621);
+            this.tabPage2.Size = new System.Drawing.Size(803, 621);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Таблица";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -219,12 +221,14 @@
             this.tabControl2.Location = new System.Drawing.Point(-2, 2);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1115, 692);
+            this.tabControl2.Size = new System.Drawing.Size(1332, 692);
             this.tabControl2.TabIndex = 2;
             // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.LavenderBlush;
+            this.tabPage3.Controls.Add(this.SolutionType);
+            this.tabPage3.Controls.Add(this.ReloadCheckBox);
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.IncLabel);
             this.tabPage3.Controls.Add(this.DecLabel);
@@ -235,9 +239,9 @@
             this.tabPage3.Controls.Add(this.pictureBox1);
             this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Controls.Add(this.EpsilonTextBox);
-            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.EpsilonLabel);
             this.tabPage3.Controls.Add(this.XmaxTextBox);
-            this.tabPage3.Controls.Add(this.label7);
+            this.tabPage3.Controls.Add(this.XmaxLabel);
             this.tabPage3.Controls.Add(this.LTextBox);
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.RTextBox);
@@ -254,63 +258,63 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1107, 666);
+            this.tabPage3.Size = new System.Drawing.Size(1324, 666);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Задача";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Papyrus", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(140, 339);
+            this.label10.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(145, 297);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 21);
+            this.label10.Size = new System.Drawing.Size(94, 29);
             this.label10.TabIndex = 26;
             this.label10.Text = "Справка";
             // 
             // IncLabel
             // 
             this.IncLabel.AutoSize = true;
-            this.IncLabel.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.IncLabel.Location = new System.Drawing.Point(10, 517);
+            this.IncLabel.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.IncLabel.Location = new System.Drawing.Point(15, 475);
             this.IncLabel.Name = "IncLabel";
-            this.IncLabel.Size = new System.Drawing.Size(104, 25);
+            this.IncLabel.Size = new System.Drawing.Size(118, 29);
             this.IncLabel.TabIndex = 25;
             this.IncLabel.Text = "Ув. шага = ";
             // 
             // DecLabel
             // 
             this.DecLabel.AutoSize = true;
-            this.DecLabel.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DecLabel.Location = new System.Drawing.Point(10, 485);
+            this.DecLabel.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DecLabel.Location = new System.Drawing.Point(15, 443);
             this.DecLabel.Name = "DecLabel";
-            this.DecLabel.Size = new System.Drawing.Size(109, 25);
+            this.DecLabel.Size = new System.Drawing.Size(122, 29);
             this.DecLabel.TabIndex = 24;
             this.DecLabel.Text = "Ум. шага = ";
             // 
             // minSLabel
             // 
             this.minSLabel.AutoSize = true;
-            this.minSLabel.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.minSLabel.Location = new System.Drawing.Point(10, 427);
+            this.minSLabel.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.minSLabel.Location = new System.Drawing.Point(15, 385);
             this.minSLabel.Name = "minSLabel";
-            this.minSLabel.Size = new System.Drawing.Size(98, 25);
+            this.minSLabel.Size = new System.Drawing.Size(108, 29);
             this.minSLabel.TabIndex = 23;
             this.minSLabel.Text = "min |S| = ";
             // 
             // maxSLabel
             // 
             this.maxSLabel.AutoSize = true;
-            this.maxSLabel.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.maxSLabel.Location = new System.Drawing.Point(10, 364);
+            this.maxSLabel.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.maxSLabel.Location = new System.Drawing.Point(15, 322);
             this.maxSLabel.Name = "maxSLabel";
-            this.maxSLabel.Size = new System.Drawing.Size(102, 25);
+            this.maxSLabel.Size = new System.Drawing.Size(114, 29);
             this.maxSLabel.TabIndex = 22;
             this.maxSLabel.Text = "max |S| = ";
             // 
             // HTextBox
             // 
-            this.HTextBox.Location = new System.Drawing.Point(64, 211);
+            this.HTextBox.Location = new System.Drawing.Point(68, 212);
             this.HTextBox.Name = "HTextBox";
             this.HTextBox.Size = new System.Drawing.Size(54, 20);
             this.HTextBox.TabIndex = 21;
@@ -318,10 +322,10 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label9.Location = new System.Drawing.Point(10, 206);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(47, 25);
+            this.label9.Size = new System.Drawing.Size(52, 29);
             this.label9.TabIndex = 20;
             this.label9.Text = "H = ";
             // 
@@ -342,7 +346,7 @@
             this.button1.Font = new System.Drawing.Font("Monotype Corsiva", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.Location = new System.Drawing.Point(15, 555);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(317, 92);
+            this.button1.Size = new System.Drawing.Size(496, 92);
             this.button1.TabIndex = 18;
             this.button1.Text = "Вычислить";
             this.button1.UseVisualStyleBackColor = false;
@@ -350,41 +354,41 @@
             // 
             // EpsilonTextBox
             // 
-            this.EpsilonTextBox.Location = new System.Drawing.Point(88, 293);
+            this.EpsilonTextBox.Location = new System.Drawing.Point(380, 140);
             this.EpsilonTextBox.Name = "EpsilonTextBox";
             this.EpsilonTextBox.Size = new System.Drawing.Size(54, 20);
             this.EpsilonTextBox.TabIndex = 17;
             // 
-            // label8
+            // EpsilonLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(5, 289);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 25);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Epsilon =";
+            this.EpsilonLabel.AutoSize = true;
+            this.EpsilonLabel.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EpsilonLabel.Location = new System.Drawing.Point(275, 133);
+            this.EpsilonLabel.Name = "EpsilonLabel";
+            this.EpsilonLabel.Size = new System.Drawing.Size(98, 29);
+            this.EpsilonLabel.TabIndex = 16;
+            this.EpsilonLabel.Text = "Epsilon =";
             // 
             // XmaxTextBox
             // 
-            this.XmaxTextBox.Location = new System.Drawing.Point(88, 258);
+            this.XmaxTextBox.Location = new System.Drawing.Point(209, 212);
             this.XmaxTextBox.Name = "XmaxTextBox";
             this.XmaxTextBox.Size = new System.Drawing.Size(54, 20);
             this.XmaxTextBox.TabIndex = 15;
             // 
-            // label7
+            // XmaxLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(5, 255);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 25);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Xmax  =";
+            this.XmaxLabel.AutoSize = true;
+            this.XmaxLabel.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.XmaxLabel.Location = new System.Drawing.Point(145, 206);
+            this.XmaxLabel.Name = "XmaxLabel";
+            this.XmaxLabel.Size = new System.Drawing.Size(62, 29);
+            this.XmaxLabel.TabIndex = 14;
+            this.XmaxLabel.Text = "Xn  =";
             // 
             // LTextBox
             // 
-            this.LTextBox.Location = new System.Drawing.Point(197, 174);
+            this.LTextBox.Location = new System.Drawing.Point(192, 177);
             this.LTextBox.Name = "LTextBox";
             this.LTextBox.Size = new System.Drawing.Size(54, 20);
             this.LTextBox.TabIndex = 13;
@@ -392,16 +396,16 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.Location = new System.Drawing.Point(145, 171);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 25);
+            this.label6.Size = new System.Drawing.Size(48, 29);
             this.label6.TabIndex = 12;
             this.label6.Text = "L = ";
             // 
             // RTextBox
             // 
-            this.RTextBox.Location = new System.Drawing.Point(197, 137);
+            this.RTextBox.Location = new System.Drawing.Point(192, 139);
             this.RTextBox.Name = "RTextBox";
             this.RTextBox.Size = new System.Drawing.Size(54, 20);
             this.RTextBox.TabIndex = 11;
@@ -409,16 +413,16 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.Location = new System.Drawing.Point(145, 133);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 25);
+            this.label5.Size = new System.Drawing.Size(49, 29);
             this.label5.TabIndex = 10;
             this.label5.Text = "R = ";
             // 
             // VTextBox
             // 
-            this.VTextBox.Location = new System.Drawing.Point(197, 100);
+            this.VTextBox.Location = new System.Drawing.Point(192, 103);
             this.VTextBox.Name = "VTextBox";
             this.VTextBox.Size = new System.Drawing.Size(54, 20);
             this.VTextBox.TabIndex = 9;
@@ -426,16 +430,16 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.Location = new System.Drawing.Point(145, 97);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 25);
+            this.label4.Size = new System.Drawing.Size(50, 29);
             this.label4.TabIndex = 8;
             this.label4.Text = "V = ";
             // 
             // IoTextBox
             // 
-            this.IoTextBox.Location = new System.Drawing.Point(64, 174);
+            this.IoTextBox.Location = new System.Drawing.Point(69, 177);
             this.IoTextBox.Name = "IoTextBox";
             this.IoTextBox.Size = new System.Drawing.Size(54, 20);
             this.IoTextBox.TabIndex = 7;
@@ -443,16 +447,16 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(10, 171);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 25);
+            this.label3.Size = new System.Drawing.Size(58, 29);
             this.label3.TabIndex = 6;
             this.label3.Text = "Io = ";
             // 
             // XoTextBox
             // 
-            this.XoTextBox.Location = new System.Drawing.Point(64, 136);
+            this.XoTextBox.Location = new System.Drawing.Point(70, 139);
             this.XoTextBox.Name = "XoTextBox";
             this.XoTextBox.Size = new System.Drawing.Size(54, 20);
             this.XoTextBox.TabIndex = 5;
@@ -460,16 +464,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(10, 133);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 25);
+            this.label2.Size = new System.Drawing.Size(56, 29);
             this.label2.TabIndex = 4;
             this.label2.Text = "Xo =";
             // 
             // NTextBox
             // 
-            this.NTextBox.Location = new System.Drawing.Point(64, 100);
+            this.NTextBox.Location = new System.Drawing.Point(69, 103);
             this.NTextBox.Name = "NTextBox";
             this.NTextBox.Size = new System.Drawing.Size(54, 20);
             this.NTextBox.TabIndex = 3;
@@ -477,19 +481,43 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(10, 97);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 25);
+            this.label1.Size = new System.Drawing.Size(53, 29);
             this.label1.TabIndex = 2;
             this.label1.Text = "N = ";
+            // 
+            // ReloadCheckBox
+            // 
+            this.ReloadCheckBox.AutoSize = true;
+            this.ReloadCheckBox.Checked = true;
+            this.ReloadCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ReloadCheckBox.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReloadCheckBox.Location = new System.Drawing.Point(10, 250);
+            this.ReloadCheckBox.Name = "ReloadCheckBox";
+            this.ReloadCheckBox.Size = new System.Drawing.Size(105, 24);
+            this.ReloadCheckBox.TabIndex = 27;
+            this.ReloadCheckBox.Text = "Обновлять";
+            this.ReloadCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // SolutionType
+            // 
+            this.SolutionType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SolutionType.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SolutionType.FormattingEnabled = true;
+            this.SolutionType.Location = new System.Drawing.Point(280, 97);
+            this.SolutionType.Name = "SolutionType";
+            this.SolutionType.Size = new System.Drawing.Size(231, 26);
+            this.SolutionType.TabIndex = 28;
+            this.SolutionType.SelectedIndexChanged += new System.EventHandler(this.SolutionType_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1108, 683);
+            this.ClientSize = new System.Drawing.Size(1324, 683);
             this.Controls.Add(this.tabControl2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -541,9 +569,9 @@
         private System.Windows.Forms.TextBox VTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox EpsilonTextBox;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label EpsilonLabel;
         private System.Windows.Forms.TextBox XmaxTextBox;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label XmaxLabel;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox HTextBox;
@@ -553,6 +581,8 @@
         private System.Windows.Forms.Label DecLabel;
         private System.Windows.Forms.Label minSLabel;
         private System.Windows.Forms.Label maxSLabel;
+        private System.Windows.Forms.ComboBox SolutionType;
+        private System.Windows.Forms.CheckBox ReloadCheckBox;
     }
 }
 

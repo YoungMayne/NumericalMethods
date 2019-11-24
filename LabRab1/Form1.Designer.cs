@@ -28,24 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.MainGraph = new ZedGraph.ZedGraphControl();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.MainTable = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.SolutionType = new System.Windows.Forms.ComboBox();
+            this.ReloadCheckBox = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.IncLabel = new System.Windows.Forms.Label();
             this.DecLabel = new System.Windows.Forms.Label();
@@ -53,7 +43,6 @@
             this.maxSLabel = new System.Windows.Forms.Label();
             this.HTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.EpsilonTextBox = new System.Windows.Forms.TextBox();
             this.EpsilonLabel = new System.Windows.Forms.Label();
@@ -71,25 +60,29 @@
             this.label2 = new System.Windows.Forms.Label();
             this.NTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.ReloadCheckBox = new System.Windows.Forms.CheckBox();
-            this.SolutionType = new System.Windows.Forms.ComboBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Справка = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.MainGraph = new ZedGraph.ZedGraphControl();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainTable)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.Справка.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // MainGraph
-            // 
-            this.MainGraph.IsShowPointValues = false;
-            this.MainGraph.Location = new System.Drawing.Point(-4, -16);
-            this.MainGraph.Name = "MainGraph";
-            this.MainGraph.PointValueFormat = "G";
-            this.MainGraph.Size = new System.Drawing.Size(811, 641);
-            this.MainGraph.TabIndex = 0;
             // 
             // tabControl1
             // 
@@ -138,8 +131,6 @@
             this.Column5,
             this.Column6,
             this.Column7,
-            this.Column8,
-            this.Column9,
             this.Column10,
             this.Column11});
             this.MainTable.Location = new System.Drawing.Point(-21, 0);
@@ -149,75 +140,10 @@
             this.MainTable.Size = new System.Drawing.Size(781, 625);
             this.MainTable.TabIndex = 0;
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "i";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Hi-1";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Xi";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Vi";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Vi удв.";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Vi -Vi удв.";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "S";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Vi уточ.";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Vi итог.";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Ум. шага";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "Ув. шага";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            // 
             // tabControl2
             // 
             this.tabControl2.Controls.Add(this.tabPage3);
+            this.tabControl2.Controls.Add(this.Справка);
             this.tabControl2.Location = new System.Drawing.Point(-2, 2);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
@@ -262,21 +188,45 @@
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Задача";
             // 
+            // SolutionType
+            // 
+            this.SolutionType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SolutionType.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SolutionType.FormattingEnabled = true;
+            this.SolutionType.Location = new System.Drawing.Point(280, 97);
+            this.SolutionType.Name = "SolutionType";
+            this.SolutionType.Size = new System.Drawing.Size(231, 26);
+            this.SolutionType.TabIndex = 28;
+            this.SolutionType.SelectedIndexChanged += new System.EventHandler(this.SolutionType_SelectedIndexChanged);
+            // 
+            // ReloadCheckBox
+            // 
+            this.ReloadCheckBox.AutoSize = true;
+            this.ReloadCheckBox.Checked = true;
+            this.ReloadCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ReloadCheckBox.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReloadCheckBox.Location = new System.Drawing.Point(10, 250);
+            this.ReloadCheckBox.Name = "ReloadCheckBox";
+            this.ReloadCheckBox.Size = new System.Drawing.Size(105, 24);
+            this.ReloadCheckBox.TabIndex = 27;
+            this.ReloadCheckBox.Text = "Обновлять";
+            this.ReloadCheckBox.UseVisualStyleBackColor = true;
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label10.Location = new System.Drawing.Point(145, 297);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(94, 29);
+            this.label10.Size = new System.Drawing.Size(127, 29);
             this.label10.TabIndex = 26;
-            this.label10.Text = "Справка";
+            this.label10.Text = "Результаты";
             // 
             // IncLabel
             // 
             this.IncLabel.AutoSize = true;
             this.IncLabel.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.IncLabel.Location = new System.Drawing.Point(15, 475);
+            this.IncLabel.Location = new System.Drawing.Point(15, 480);
             this.IncLabel.Name = "IncLabel";
             this.IncLabel.Size = new System.Drawing.Size(118, 29);
             this.IncLabel.TabIndex = 25;
@@ -286,7 +236,7 @@
             // 
             this.DecLabel.AutoSize = true;
             this.DecLabel.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DecLabel.Location = new System.Drawing.Point(15, 443);
+            this.DecLabel.Location = new System.Drawing.Point(15, 448);
             this.DecLabel.Name = "DecLabel";
             this.DecLabel.Size = new System.Drawing.Size(122, 29);
             this.DecLabel.TabIndex = 24;
@@ -328,16 +278,6 @@
             this.label9.Size = new System.Drawing.Size(52, 29);
             this.label9.TabIndex = 20;
             this.label9.Text = "H = ";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::LabRab1.Properties.Resources.FormulaLB1;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(195, 52);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
             // 
             // button1
             // 
@@ -488,29 +428,99 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "N = ";
             // 
-            // ReloadCheckBox
+            // Column1
             // 
-            this.ReloadCheckBox.AutoSize = true;
-            this.ReloadCheckBox.Checked = true;
-            this.ReloadCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ReloadCheckBox.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ReloadCheckBox.Location = new System.Drawing.Point(10, 250);
-            this.ReloadCheckBox.Name = "ReloadCheckBox";
-            this.ReloadCheckBox.Size = new System.Drawing.Size(105, 24);
-            this.ReloadCheckBox.TabIndex = 27;
-            this.ReloadCheckBox.Text = "Обновлять";
-            this.ReloadCheckBox.UseVisualStyleBackColor = true;
+            this.Column1.HeaderText = "i";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
-            // SolutionType
+            // Column2
             // 
-            this.SolutionType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SolutionType.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SolutionType.FormattingEnabled = true;
-            this.SolutionType.Location = new System.Drawing.Point(280, 97);
-            this.SolutionType.Name = "SolutionType";
-            this.SolutionType.Size = new System.Drawing.Size(231, 26);
-            this.SolutionType.TabIndex = 28;
-            this.SolutionType.SelectedIndexChanged += new System.EventHandler(this.SolutionType_SelectedIndexChanged);
+            this.Column2.HeaderText = "Hi-1";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Xi";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Vi";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Vi удв.";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Vi -Vi удв.";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "S";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Ум. шага";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Ув. шага";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            // 
+            // Справка
+            // 
+            this.Справка.Controls.Add(this.pictureBox2);
+            this.Справка.Location = new System.Drawing.Point(4, 22);
+            this.Справка.Name = "Справка";
+            this.Справка.Padding = new System.Windows.Forms.Padding(3);
+            this.Справка.Size = new System.Drawing.Size(1324, 666);
+            this.Справка.TabIndex = 1;
+            this.Справка.Text = "Справка";
+            this.Справка.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::LabRab1.Properties.Resources.FormulaLB1;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(195, 52);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
+            // 
+            // MainGraph
+            // 
+            this.MainGraph.IsShowPointValues = false;
+            this.MainGraph.Location = new System.Drawing.Point(-4, -16);
+            this.MainGraph.Name = "MainGraph";
+            this.MainGraph.PointValueFormat = "G";
+            this.MainGraph.Size = new System.Drawing.Size(811, 641);
+            this.MainGraph.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::LabRab1.Properties.Resources.Reference;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(822, 253);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // Form1
             // 
@@ -531,7 +541,10 @@
             this.tabControl2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.Справка.ResumeLayout(false);
+            this.Справка.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -545,17 +558,6 @@
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView MainTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.TextBox XoTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox NTextBox;
@@ -583,6 +585,17 @@
         private System.Windows.Forms.Label maxSLabel;
         private System.Windows.Forms.ComboBox SolutionType;
         private System.Windows.Forms.CheckBox ReloadCheckBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.TabPage Справка;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

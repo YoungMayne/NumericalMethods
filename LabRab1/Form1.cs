@@ -31,15 +31,15 @@ namespace LabRab1
         {
             InitializeComponent();
 
-            NTextBox.Text       = "0";
-            XoTextBox.Text      = "0.0";
-            IoTextBox.Text      = "0.0";
-            HTextBox.Text       = "0.0";
+            NTextBox.Text       = "1000";
+            XoTextBox.Text      = "3.0";
+            IoTextBox.Text      = "2.0";
+            HTextBox.Text       = "0.01";
             VTextBox.Text       = "0.0";
-            RTextBox.Text       = "0.0";
-            LTextBox.Text       = "0.0";
-            XmaxTextBox.Text    = "0.0";
-            EpsilonTextBox.Text = "0.0";
+            RTextBox.Text       = "2.0";
+            LTextBox.Text       = "3.0";
+            XmaxTextBox.Text    = "1000.0";
+            EpsilonTextBox.Text = "0.001";
 
             MainGraph.GraphPane.Title       = "";
             MainGraph.GraphPane.XAxis.Title = "X";
@@ -98,6 +98,7 @@ namespace LabRab1
                                          random.Next() % 256), 
                           SymbolType.None);
 
+            MainGraph.AxisChange();
             MainGraph.Refresh();
         }
 
@@ -117,12 +118,15 @@ namespace LabRab1
 
             uint C1 = 0u;
             uint C2 = 0u;
+            uint totalC1 = 0u;
+            uint totalC2 = 0u;
 
             // step #0
-            table.Add(new List<double>() { 0, 0, curX, Vstep, Vstep, 0, 0, 0, Vstep, 0, 0 });
+            table.Add(new List<double>() { 0, 0, curX, Vstep, Vstep, 0, 0, 0, 0 });
+            solutionWithHalfStep.Add(new PointPair(curX, Vstep));
 
             // using control
-            for(uint i = 1u; (i <= N) && (curX < maxX);)
+            for (uint i = 1u; (i <= N) && (curX < maxX);)
             {
                 // Save previous result
                 Vprev = Vstep;
@@ -131,7 +135,7 @@ namespace LabRab1
                 Vhalf = Method(Vprev, curX, H * 0.5);
                 Vhalf = Method(Vhalf, curX + (H * 0.5), H * 0.5);
 
-                S = (Vhalf - Vstep) / (Math.Pow(2, 5) - 1);
+                S = (Vhalf - Vstep) / (Math.Pow(2.0, 5.0) - 1.0);
 
                 if (Math.Abs(S) > eps)
                 {
@@ -141,14 +145,17 @@ namespace LabRab1
 
                     continue;
                 }
-                else if (Math.Abs(S) <= (eps / (Math.Pow(2, 5))))
+                else if (Math.Abs(S) <= (eps / (Math.Pow(2.0, 5.0))))
                 {
                     H *= 2.0;
-                    C2++;
+                    C2++;                
                 }
 
                 Slist.Add(S);
                 Xlist.Add(curX);
+
+                // Switch x
+                curX += H;
 
                 // fill the graph
                 solutionWithHalfStep.Add(new PointPair(curX, Vhalf));
@@ -177,12 +184,6 @@ namespace LabRab1
                 // S
                 row.Add(S);
 
-                // Vi уточ
-                row.Add(0);
-
-                // Vi итог
-                row.Add(0);
-
                 // number of step doubles
                 row.Add(C1);
 
@@ -194,7 +195,10 @@ namespace LabRab1
 
                 // Update fields
                 i++;
-                curX += H;
+                totalC1 += C1;
+                totalC2 += C2;
+                C1 = 0u;
+                C2 = 0u;
             }
 
             // Draw points
@@ -212,6 +216,7 @@ namespace LabRab1
                                          random.Next() % 256),
                           SymbolType.None);
 
+            MainGraph.AxisChange();
             MainGraph.Refresh();
 
             // Fill table
@@ -236,8 +241,8 @@ namespace LabRab1
             // Fill reference
             double minS  = Math.Abs(Slist[0]);
             double maxS  = Math.Abs(Slist[0]);
-            double maxSx = 0;
-            double minSx = 0;
+            double maxSx = Xlist[0];
+            double minSx = Xlist[0];
 
             for(int i = 1; i < Slist.Count; ++i)
             {
@@ -254,10 +259,10 @@ namespace LabRab1
                 }
             }
 
-            minSLabel.Text = "min |S| = "  + minS.ToString() + "\n в точке x = " + minSx.ToString();
-            maxSLabel.Text = "max |S| = "  + maxS.ToString() + "\n в точке x = " + maxSx.ToString();
-            IncLabel.Text  = "Ув. шага = " + C2.ToString();
-            DecLabel.Text  = "Ум. шага = " + C1.ToString();
+            minSLabel.Text = "min |S| = "  + minS.ToString() + "\nв точке x = " + minSx.ToString();
+            maxSLabel.Text = "max |S| = "  + maxS.ToString() + "\nв точке x = " + maxSx.ToString();
+            IncLabel.Text  = "Ув. шага = " + totalC2.ToString();
+            DecLabel.Text  = "Ум. шага = " + totalC1.ToString();
         }
 
         private bool CheckInput()

@@ -43,7 +43,7 @@ namespace LabRab1
 
             MainGraph.GraphPane.Title       = "";
             MainGraph.GraphPane.XAxis.Title = "X";
-            MainGraph.GraphPane.YAxis.Title = "dI/dx";
+            MainGraph.GraphPane.YAxis.Title = "I";
 
             minSLabel.Text = "min |S| = "  + 0.ToString();
             maxSLabel.Text = "max |S| = "  + 0.ToString();
@@ -76,6 +76,8 @@ namespace LabRab1
         private void ProcessStatic()
         {
             PointPairList solution = new PointPairList();
+
+            solution.Add(new PointPair(curX, V));
 
             for (int i = 0; (i < N) && (curX < maxX); i++, curX += H)
             {

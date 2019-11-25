@@ -52,6 +52,7 @@ namespace LabRab1
 
             SolutionType.Items.Add("Решение с постоянным шагом");
             SolutionType.Items.Add("Решение с контролем погрешности");
+            SolutionType.Items.Add("Точное решение");
             SolutionType.SelectedIndex = 0;
 
             random = new Random();
@@ -71,6 +72,11 @@ namespace LabRab1
             double k4 = Function(x + h, v + h * k3);
 
             return v + (h * 0.1666666666666667 * (k1 + (2.0 * k2) + (2.0 * k3) + k4));
+        }
+
+        private double Exact(double v, double x)
+        {
+            return (coefV / coefR) + ((V - (coefV / coefR)) * Math.Exp(coefR / coefL * (curX - x)));
         }
 
         private void ProcessStatic()
@@ -268,6 +274,41 @@ namespace LabRab1
             DecLabel.Text  = "Ум. шага = " + totalC1.ToString();
         }
 
+        private void ProcessExact()
+        {
+            PointPairList solution = new PointPairList();
+
+            double startI = V;
+            double startX = curX;
+
+            solution.Add(new PointPair(startX, startI));
+
+            for (int i = 0; (i < N) && (startX < maxX); i++)
+            {
+                startI = Method(startI, startX, H);
+                startX += H;
+                solution.Add(new PointPair(startX, startI));
+            }
+
+            // Draw points
+            GraphPane pane = MainGraph.GraphPane;
+
+            if (ReloadCheckBox.Checked)
+            {
+                pane.CurveList.Clear();
+            }
+
+            pane.AddCurve("Точное решение",
+                          solution,
+                          Color.FromArgb(random.Next() % 256,
+                                         random.Next() % 256,
+                                         random.Next() % 256),
+                          SymbolType.None);
+
+            MainGraph.AxisChange();
+            MainGraph.Refresh();
+        }
+
         private bool CheckInput()
         {
             if(!uint.TryParse(NTextBox.Text, out N))
@@ -333,6 +374,9 @@ namespace LabRab1
                     break;
                 case 1:
                     ProcessDynamic();
+                    break;
+                case 2:
+                    ProcessExact();
                     break;
                 default:
                     break;

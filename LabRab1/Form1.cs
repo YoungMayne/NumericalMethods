@@ -79,9 +79,10 @@ namespace LabRab1
 
             solution.Add(new PointPair(curX, V));
 
-            for (int i = 0; (i < N) && (curX < maxX); i++, curX += H)
+            for (int i = 0; (i < N) && (curX < maxX); i++)
             {
                 V = Method(V, curX, H);
+                curX += H;
                 solution.Add(new PointPair(curX, V));
             }
 

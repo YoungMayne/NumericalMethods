@@ -38,7 +38,7 @@ namespace LabRab1
             VTextBox.Text       = "0.0";
             RTextBox.Text       = "2.0";
             LTextBox.Text       = "3.0";
-            XmaxTextBox.Text    = "1000.0";
+            XmaxTextBox.Text    = "10.0";
             EpsilonTextBox.Text = "0.001";
 
             MainGraph.GraphPane.Title       = "";
@@ -281,13 +281,41 @@ namespace LabRab1
             double startI = V;
             double startX = curX;
 
+            List<List<double>> table = new List<List<double>>();
+            List<double> row = new List<double>(11);
+
             solution.Add(new PointPair(startX, startI));
+
+            table.Add(new List<double>() { 0, H, startX, startI });
 
             for (int i = 0; (i < N) && (startX < maxX); i++)
             {
+                row.Clear();
+
                 startI = Method(startI, startX, H);
                 startX += H;
                 solution.Add(new PointPair(startX, startI));
+
+                row.Add(i + 1);
+                row.Add(H);
+                row.Add(startX);
+                row.Add(startI);
+
+                table.Add(new List<double>(row));
+            }
+
+            // Fill table
+            DataGridViewRowCollection rows = ExactTable.Rows;
+            rows.Clear();
+
+            for (int i = 0; i < table.Count; ++i)
+            {
+                rows.Add();
+
+                for (int j = 0; j < table[i].Count; ++j)
+                {
+                    rows[i].Cells[j].Value = table[i][j];
+                }
             }
 
             // Draw points

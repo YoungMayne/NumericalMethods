@@ -56,6 +56,7 @@ namespace LabRab1
             SolutionType.SelectedIndex = 0;
 
             random = new Random();
+            LastDotTable.RowHeadersVisible = false;
         }
 
         private double Function(double x, double v)
@@ -120,9 +121,11 @@ namespace LabRab1
             List<double> Slist       = new List<double>();
             List<double> Xlist       = new List<double>();
 
+            double Hprev = H;
             double Vstep = V;
             double Vhalf;
             double Vprev;
+            double le;
             double S;
 
             uint C1 = 0u;
@@ -135,16 +138,18 @@ namespace LabRab1
             solutionWithHalfStep.Add(new PointPair(curX, Vstep));
 
             // using control
-            for (uint i = 1u; (i <= N) && (curX < maxX);)
+            for (uint i = 1u; (i <= N);)
             {
                 // Save previous result
                 Vprev = Vstep;
+                Hprev = H;
 
                 Vstep = Method(Vprev, curX, H);
                 Vhalf = Method(Vprev, curX, H * 0.5);
                 Vhalf = Method(Vhalf, curX + (H * 0.5), H * 0.5);
 
-                S = (Vhalf - Vstep) / (Math.Pow(2.0, 5.0) - 1.0);
+                S = (Vhalf - Vstep) / (Math.Pow(2.0, 4.0) - 1.0);
+                le = eps / Math.Pow(2.0, 5.0);
 
                 if (Math.Abs(S) > eps)
                 {
@@ -154,17 +159,14 @@ namespace LabRab1
 
                     continue;
                 }
-                else if (Math.Abs(S) <= (eps / (Math.Pow(2.0, 5.0))))
+                else if (Math.Abs(S) <= le)
                 {
                     H *= 2.0;
-                    C2++;                
+                    C2++;
                 }
 
                 Slist.Add(S);
                 Xlist.Add(curX);
-
-                // Switch x
-                curX += H;
 
                 // fill the graph
                 solutionWithHalfStep.Add(new PointPair(curX, Vhalf));
@@ -176,7 +178,7 @@ namespace LabRab1
                 row.Add(i);
 
                 // current step
-                row.Add(H);
+                row.Add(Hprev);
 
                 // x value
                 row.Add(curX);
@@ -202,10 +204,16 @@ namespace LabRab1
                 // store row
                 table.Add(new List<double>(row));
 
+                if (curX >= maxX)
+                {
+                    break;
+                }
+
                 // Update fields
                 i++;
                 totalC1 += C1;
                 totalC2 += C2;
+                curX += H;
                 C1 = 0u;
                 C2 = 0u;
             }
@@ -239,6 +247,20 @@ namespace LabRab1
                 for(int j = 0; j < table[i].Count; ++j)
                 {
                     rows[i].Cells[j].Value = table[i][j];
+                }
+            }
+
+            // Fill last dot
+            DataGridViewRowCollection lastDotRow = LastDotTable.Rows;
+            lastDotRow.Clear();
+
+            if (0 < table.Count)
+            {
+                lastDotRow.Add();
+
+                for(int i = 0; i < lastDotRow[0].Cells.Count; ++i)
+                {
+                    lastDotRow[0].Cells[i].Value = rows[rows.Count - 1].Cells[i].Value;
                 }
             }
 
@@ -315,6 +337,20 @@ namespace LabRab1
                 for (int j = 0; j < table[i].Count; ++j)
                 {
                     rows[i].Cells[j].Value = table[i][j];
+                }
+            }
+
+            // Fill last dot
+            DataGridViewRowCollection lastDotRow = LastDotTable.Rows;
+            lastDotRow.Clear();
+
+            if (0 < table.Count)
+            {
+                lastDotRow.Add();
+
+                for (int i = 0; i < lastDotRow[0].Cells.Count; ++i)
+                {
+                    lastDotRow[0].Cells[i].Value = rows[rows.Count - 1].Cells[i].Value;
                 }
             }
 

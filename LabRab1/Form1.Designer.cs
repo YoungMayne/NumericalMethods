@@ -35,16 +35,12 @@
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.MainTable = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.ExactTable = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.SolutionType = new System.Windows.Forms.ComboBox();
@@ -76,11 +72,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Справка = new System.Windows.Forms.TabPage();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.ExactTable = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastDotTable = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -88,12 +94,13 @@
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainTable)).BeginInit();
             this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ExactTable)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Справка.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ExactTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LastDotTable)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -179,62 +186,8 @@
             this.MainTable.Name = "MainTable";
             this.MainTable.ReadOnly = true;
             this.MainTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.MainTable.Size = new System.Drawing.Size(826, 625);
+            this.MainTable.Size = new System.Drawing.Size(826, 603);
             this.MainTable.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "i";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Hi-1";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Xi";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Vi";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Vi удв.";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Vi -Vi удв.";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "S";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Ум. шага";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "Ув. шага";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
             // 
             // tabPage6
             // 
@@ -246,6 +199,49 @@
             this.tabPage6.TabIndex = 2;
             this.tabPage6.Text = "Точное решение";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // ExactTable
+            // 
+            this.ExactTable.AllowUserToAddRows = false;
+            this.ExactTable.AllowUserToDeleteRows = false;
+            this.ExactTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ExactTable.BackgroundColor = System.Drawing.Color.LavenderBlush;
+            this.ExactTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.ExactTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.ExactTable.Location = new System.Drawing.Point(-29, 0);
+            this.ExactTable.Name = "ExactTable";
+            this.ExactTable.ReadOnly = true;
+            this.ExactTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.ExactTable.Size = new System.Drawing.Size(826, 603);
+            this.ExactTable.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "i";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Hi-1";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Xi";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Vi";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // tabControl2
             // 
@@ -260,6 +256,8 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.LavenderBlush;
+            this.tabPage3.Controls.Add(this.label7);
+            this.tabPage3.Controls.Add(this.LastDotTable);
             this.tabPage3.Controls.Add(this.SolutionType);
             this.tabPage3.Controls.Add(this.ReloadCheckBox);
             this.tabPage3.Controls.Add(this.label10);
@@ -401,9 +399,9 @@
             this.button1.BackColor = System.Drawing.Color.HotPink;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Monotype Corsiva", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(15, 555);
+            this.button1.Location = new System.Drawing.Point(15, 585);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(496, 92);
+            this.button1.Size = new System.Drawing.Size(496, 62);
             this.button1.TabIndex = 18;
             this.button1.Text = "Вычислить";
             this.button1.UseVisualStyleBackColor = false;
@@ -413,7 +411,7 @@
             // 
             this.EpsilonTextBox.Location = new System.Drawing.Point(380, 140);
             this.EpsilonTextBox.Name = "EpsilonTextBox";
-            this.EpsilonTextBox.Size = new System.Drawing.Size(54, 20);
+            this.EpsilonTextBox.Size = new System.Drawing.Size(131, 20);
             this.EpsilonTextBox.TabIndex = 17;
             // 
             // EpsilonLabel
@@ -428,7 +426,7 @@
             // 
             // XmaxTextBox
             // 
-            this.XmaxTextBox.Location = new System.Drawing.Point(209, 212);
+            this.XmaxTextBox.Location = new System.Drawing.Point(241, 212);
             this.XmaxTextBox.Name = "XmaxTextBox";
             this.XmaxTextBox.Size = new System.Drawing.Size(54, 20);
             this.XmaxTextBox.TabIndex = 15;
@@ -439,9 +437,9 @@
             this.XmaxLabel.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.XmaxLabel.Location = new System.Drawing.Point(145, 206);
             this.XmaxLabel.Name = "XmaxLabel";
-            this.XmaxLabel.Size = new System.Drawing.Size(62, 29);
+            this.XmaxLabel.Size = new System.Drawing.Size(90, 29);
             this.XmaxLabel.TabIndex = 14;
-            this.XmaxLabel.Text = "Xn  =";
+            this.XmaxLabel.Text = "Xmax  =";
             // 
             // LTextBox
             // 
@@ -566,48 +564,110 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // ExactTable
+            // Column1
             // 
-            this.ExactTable.AllowUserToAddRows = false;
-            this.ExactTable.AllowUserToDeleteRows = false;
-            this.ExactTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ExactTable.BackgroundColor = System.Drawing.Color.LavenderBlush;
-            this.ExactTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.ExactTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.ExactTable.Location = new System.Drawing.Point(-29, 0);
-            this.ExactTable.Name = "ExactTable";
-            this.ExactTable.ReadOnly = true;
-            this.ExactTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.ExactTable.Size = new System.Drawing.Size(826, 625);
-            this.ExactTable.TabIndex = 1;
+            this.Column1.HeaderText = "i";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn1
+            // Column2
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "i";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.Column2.HeaderText = "Hi-1";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn2
+            // Column3
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Hi-1";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.Column3.HeaderText = "Xi";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn3
+            // Column4
             // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Xi";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.Column4.HeaderText = "Vi";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn4
+            // Column5
             // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Vi";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.Column5.HeaderText = "Vi удв.";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Vi -Vi удв.";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "S";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Ум. шага";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Ув. шага";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            // 
+            // LastDotTable
+            // 
+            this.LastDotTable.AllowUserToAddRows = false;
+            this.LastDotTable.AllowUserToDeleteRows = false;
+            this.LastDotTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.LastDotTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column13,
+            this.Column8,
+            this.Column9,
+            this.Column12});
+            this.LastDotTable.Location = new System.Drawing.Point(15, 534);
+            this.LastDotTable.Name = "LastDotTable";
+            this.LastDotTable.ReadOnly = true;
+            this.LastDotTable.Size = new System.Drawing.Size(496, 45);
+            this.LastDotTable.TabIndex = 29;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(139, 508);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(233, 23);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Последняя точка траектории";
+            // 
+            // Column13
+            // 
+            this.Column13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column13.HeaderText = "i";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Hi-1";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Xi";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Vi";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
             // 
             // Form1
             // 
@@ -628,6 +688,7 @@
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainTable)).EndInit();
             this.tabPage6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ExactTable)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
@@ -635,7 +696,7 @@
             this.Справка.ResumeLayout(false);
             this.Справка.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ExactTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LastDotTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -676,15 +737,6 @@
         private System.Windows.Forms.Label maxSLabel;
         private System.Windows.Forms.ComboBox SolutionType;
         private System.Windows.Forms.CheckBox ReloadCheckBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.TabPage Справка;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TabControl tabControl3;
@@ -695,6 +747,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridView LastDotTable;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
     }
 }
 

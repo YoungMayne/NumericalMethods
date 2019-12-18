@@ -136,6 +136,7 @@ namespace LabRab1
             // step #0
             table.Add(new List<double>() { 0, 0, curX, Vstep, Vstep, 0, 0, 0, 0 });
             solutionWithHalfStep.Add(new PointPair(curX, Vstep));
+            curX += H;
 
             // using control
             for (uint i = 1u; (i <= N);)

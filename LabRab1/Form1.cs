@@ -125,7 +125,6 @@ namespace LabRab1
             double Vstep = V;
             double Vhalf;
             double Vprev;
-            double le;
             double S;
 
             uint C1 = 0u;
@@ -136,7 +135,6 @@ namespace LabRab1
             // step #0
             table.Add(new List<double>() { 0, 0, curX, Vstep, Vstep, 0, 0, 0, 0 });
             solutionWithHalfStep.Add(new PointPair(curX, Vstep));
-            curX += H;
 
             // using control
             for (uint i = 1u; (i <= N);)
@@ -150,7 +148,6 @@ namespace LabRab1
                 Vhalf = Method(Vhalf, curX + (H * 0.5), H * 0.5);
 
                 S = (Vhalf - Vstep) / (Math.Pow(2.0, 4.0) - 1.0);
-                le = eps / Math.Pow(2.0, 5.0);
 
                 if (Math.Abs(S) > eps)
                 {
@@ -160,10 +157,15 @@ namespace LabRab1
 
                     continue;
                 }
-                else if (Math.Abs(S) <= le)
+                else 
                 {
-                    H *= 2.0;
-                    C2++;
+                    curX += H;
+
+                    if (Math.Abs(S) <= (eps / Math.Pow(2.0, 5.0)))
+                    {
+                        H *= 2.0;
+                        C2++;
+                    }
                 }
 
                 Slist.Add(S);
@@ -214,7 +216,6 @@ namespace LabRab1
                 i++;
                 totalC1 += C1;
                 totalC2 += C2;
-                curX += H;
                 C1 = 0u;
                 C2 = 0u;
             }
